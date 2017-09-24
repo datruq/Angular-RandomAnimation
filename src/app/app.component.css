@@ -1,0 +1,23 @@
+div.down {
+  position: fixed;
+  text-align: center;
+  top: 10%;
+  width: 100%;
+}
+
+div.actions{
+	padding-top: 20px;
+}
+
+button {
+  color: #ff0066;
+  border: 2px solid #ff0066;
+  border-radius: 15px;
+  background: transparent;
+  font-size: x-large;
+}
+
+button:hover{
+	background: snow;
+ 	
+}
