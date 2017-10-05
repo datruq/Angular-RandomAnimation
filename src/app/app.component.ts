@@ -10,17 +10,18 @@ import { trigger, state, style, animate, transition, group } from '@angular/anim
 	templateUrl: './app.component.html',
 	animations: [
 		trigger(
-			'enterAnimation', [
-				/*Round out*/
+			'enterAnimation', [	
+				/*roundOut*/
+				state('active', style({
+					transform: 'scale(1)'
+				})),
 				state('round', style({
 					transform: 'scale(1)'
 				})),
-				state('active', style({
-					opacity: 0
-				})),
 				transition('* => round',
-					[animate(1000, style({ opacity: 0 }))
-					]),
+					[animate(900, style({ transform: 'skewX(20deg)' })),
+					animate(900, style({ transform: 'scaleX(1)' }))
+					]),			
 				/*Rotate*/
 				state('active', style({
 					transform: 'scale(1)'
@@ -32,6 +33,30 @@ import { trigger, state, style, animate, transition, group } from '@angular/anim
 					[animate(900, style({ transform: 'rotateX(180deg)' })),
 					animate(900, style({ transform: 'scaleY(1)' }))
 					]),
+				/*hinge*/
+				state('active', style({
+					transform: 'scale(1)'
+				})),
+				state('hinge', style({
+					transform: 'scale(1)'
+				})),
+				transition('* => hinge',
+					[animate(500, style({ transform: 'matrix(1, -0.3, 0, -0.5, 0, 0)' })),
+					animate(900, style({ transform: 'scaleY(1)' }))
+					]),
+
+				/*crazyTime*/
+				state('active', style({
+					transform: 'scale(1)'
+				})),
+				state('crazyTime', style({
+					transform: 'scale(1)'
+				})),
+				transition('* => crazyTime',
+					[animate(600, style({ transform: 'skew(50deg, 10deg)' })),
+					animate(600, style({ transform: 'skew(10deg, 50deg)' })),
+					animate(600, style({ transform: 'skew(50deg, 10deg)' }))
+					])				
 			]
 		)
 	],
@@ -71,15 +96,15 @@ export class AppComponent {
 	}
 
 	hinge() {
-
+		this.animate = (this.animate === 'hinge' ? 'active' : 'hinge');
 	}
 
 	crazyTime() {
-
+		this.animate = (this.animate === 'crazyTime' ? 'active' : 'crazyTime');
 	}
 
 	bye() {
-
+		this.animate = (this.animate === 'bye' ? 'active' : 'bye');
 	}
 
 

@@ -2,7 +2,7 @@
 <div class="down">
   <img width="300" src="https://api.adorable.io/avatars/face/{{randomEye}}/{{randomNose}}/{{randomMouth}}/{{randomColor}}" [@enterAnimation]="animate">
   <div class="actions">
-    <button type="button" class="btn" (mouseenter)="roundOut()" (mouseleave)="roundOut()">Round out</button>
+    <button type="button" class="btn" (mouseover)="roundOut()" (mouseleave)="roundOut()">Round out</button>
     <button type="button" class="btn" (mouseover)="rotate()" (mouseleave)="rotate()">Rotate</button>
     <button type="button" class="btn" (mouseover)="hinge()" (mouseleave)="hinge()">Hinge</button>
     <button type="button" class="btn" (mouseover)="crazyTime()" (mouseleave)="crazyTime()">Crazy time</button>
